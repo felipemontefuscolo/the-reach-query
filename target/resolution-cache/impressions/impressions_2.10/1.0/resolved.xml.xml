@@ -4,7 +4,7 @@
 		module="impressions_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20160122011221"
+		publication="20160125205129"
 	>
 		<description>
 		Impressions
@@ -35,6 +35,7 @@
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.6" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.10.6" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.10" rev="1.4.1" conf="provided->default(compile)"/>
+		<dependency org="com.datastax.spark" name="spark-cassandra-connector_2.10" rev="1.5.0-RC1" conf="compile->default(compile)"/>
 		<dependency org="org.json4s" name="json4s-jackson_2.10" rev="3.3.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

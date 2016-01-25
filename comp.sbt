@@ -4,6 +4,7 @@ scalaVersion := "2.10.6"
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "1.4.1" % "provided",
+  "com.datastax.spark" %% "spark-cassandra-connector" % "1.5.0-RC1",
   //"org.json4s"  %% "json4s-native" % "3.3.0"
   "org.json4s"  %% "json4s-jackson" % "3.3.0"
 )
