@@ -9,7 +9,7 @@ object Impressions {
 
    val public_dns : String =sys.env("PUBLIC_DNS")
    //val dns = "hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000"
-   val dns = "hdfs://"+public_dns+":9000"
+   val dns = "hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000"
    println(dns)
 
    // setup the Spark Context named sc
