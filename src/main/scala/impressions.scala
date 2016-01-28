@@ -18,6 +18,7 @@
 // scalastyle:off println
 //package org.apache.spark.examples.streaming
 
+import scala.sys.process._ // Execute external command
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
@@ -91,6 +92,8 @@ object Impressions {
    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+    Process("ssh ubuntu@ec2-52-72-28-165.compute-1.amazonaws.com rm -f /home/ubuntu/neo4j-community-2.3.2/data/aaaaa.txt")!
 
     ssc.start()
     ssc.awaitTermination()
