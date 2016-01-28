@@ -30,6 +30,8 @@ import scala.collection.mutable.Queue
 //import org.apache.spark.streaming.scheduler.StreamingListenerBatchCompleted;
 //import org.apache.spark.streaming.scheduler.*;
 //import org.apache.spark.streaming.scheduler.StreamingListener;
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
 
 
 /**
@@ -58,6 +60,10 @@ object Impressions {
     //}
     val file = "src/main/scala/datadir"
     val outfile = "src/main/scala/out.txt" 
+
+    // suppress INFO
+    Logger.getLogger("org").setLevel(Level.WARN)
+    Logger.getLogger("akka").setLevel(Level.WARN)
 
     //StreamingExamples.setStreamingLogLevels()
     val sparkConf = new SparkConf().setAppName("Impressions")
