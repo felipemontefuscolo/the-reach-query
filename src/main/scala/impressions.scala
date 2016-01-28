@@ -18,8 +18,19 @@
 // scalastyle:off println
 //package org.apache.spark.examples.streaming
 
+
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+
+// For TESTing
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.rdd.RDD
+import scala.collection.mutable.Queue
+//import org.apache.spark.streaming.scheduler.StreamingListenerBatchCompleted;
+//import org.apache.spark.streaming.scheduler.*;
+//import org.apache.spark.streaming.scheduler.StreamingListener;
+
 
 /**
  * Counts words in new text files created in the given directory
@@ -32,25 +43,49 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
  *
  * Then create a text file in `localdir` and the words in the file will get counted.
  */
+
+//private class MyJobListener(ssc: StreamingContext) extends StreamingListener {
+//  override def onBatchCompleted(batchCompleted: StreamingListenerBatchCompleted) = synchronized {
+//    ssc.stop(true)
+//  }
+//}
+
 object Impressions {
   def main(args: Array[String]) {
     //if (args.length < 1) {
     //  System.err.println("Usage: HdfsWordCount <directory>")
     //  System.exit(1)
     //}
-    val file = "test.txt"
+    val file = "src/main/scala/datadir"
+    val outfile = "src/main/scala/out.txt" 
 
     //StreamingExamples.setStreamingLogLevels()
-    val sparkConf = new SparkConf().setAppName("HdfsWordCount")
+    val sparkConf = new SparkConf().setAppName("Impressions")
     // Create the context
-    val ssc = new StreamingContext(sparkConf, Seconds(2))
+    val sc = new SparkContext(sparkConf)
+    val ssc = new StreamingContext(sc, Seconds(4)) // when using sc
+    //val ssc = new StreamingContext(sparkConf, Seconds(2))
+
+    // TEST streaming
+    val test_rdd  = sc.textFile("src/main/scala/datadir/test.txt")
+    val words = test_rdd.flatMap(_.split(" "))
+    val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
+    val test_rddQueue: Queue[RDD[(String, Int)]] = Queue()
+    test_rddQueue.enqueue( wordCounts)
+    val dstream = ssc.queueStream(test_rddQueue)
+    dstream.print()
 
     // Create the FileInputDStream on the directory and use the
     // stream to count words in new files created
-    val lines = ssc.textFileStream(file)
-    val words = lines.flatMap(_.split(" "))
-    val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
-    wordCounts.print()
+   // val lines = ssc.textFileStream(file)
+   // val words = lines.flatMap(_.split(" "))
+   // val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
+   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
     ssc.start()
     ssc.awaitTermination()
   }
