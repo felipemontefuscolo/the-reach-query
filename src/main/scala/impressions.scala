@@ -22,6 +22,8 @@ import scala.sys.process._ // Execute external command
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.anormcypher._ // spark to neo4j
+// without auth
 
 // For TESTing
 import org.apache.spark.SparkContext
@@ -82,18 +84,47 @@ object Impressions {
     val dstream = ssc.queueStream(test_rddQueue)
     dstream.print()
 
-    // Create the FileInputDStream on the directory and use the
-    // stream to count words in new files created
-   // val lines = ssc.textFileStream(file)
-   // val words = lines.flatMap(_.split(" "))
-   // val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
-   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-   println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+     // Create the FileInputDStream on the directory and use the
+     // stream to count words in new files created
+    // val lines = ssc.textFileStream(file)
+    // val words = lines.flatMap(_.split(" "))
+    // val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
+    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
-    Process("ssh ubuntu@ec2-52-72-28-165.compute-1.amazonaws.com rm -f /home/ubuntu/neo4j-community-2.3.2/data/aaaaa.txt")!
+    val data1_dns : String = "ec2-52-72-28-165.compute-1.amazonaws.com"
+    val neo4j_db : String = "/home/ubuntu/neo4j-community-2.3.2/data/graph.db" 
+    val neo4j_db_dir : String = "/home/ubuntu/neo4j-community-2.3.2/data/" 
+
+    // reset database ... the database is in the node data1
+    Process("ssh " + data1_dns + " rm -rf " + neo4j_db)!
+
+
+    // my operator are        schema
+    //                        code id    
+    // * add new user     |   1        name:string
+    // * delete user      |   2        name:string
+    // * follow           |   3        follower:string  followed:string
+    // * unfollow         |   4        follower:string  followed:string
+    // * new tweet        |   5        msg:string  user:string
+    // * retweet          |   6        msg:string  user:string original_user:string
+   
+     
+
+
+    implicit val connection = Neo4jREST(data1_dns, 7474, neo4j_db_dir)
+    val logData = sc.textFile(FILE, 4).cache()
+    val count = logData
+      .flatMap( _.split(" "))
+      .map( w =>
+        Cypher("CREATE(:Word {text:{text}})")
+          .on( "text" -> w ).execute()
+    ).filter( _ ).count()
+
+
 
     ssc.start()
     ssc.awaitTermination()

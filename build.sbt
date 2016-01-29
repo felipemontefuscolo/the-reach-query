@@ -5,7 +5,8 @@ scalaVersion := "2.10.4"
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "1.5.2" % "provided",
-  "org.apache.spark" % "spark-streaming_2.10" % "1.5.2"
+  "org.apache.spark" % "spark-streaming_2.10" % "1.5.2",
+  "org.anormcypher" %% "anormcypher" % "0.6.0"
   //"com.datastax.spark" %% "spark-cassandra-connector" % "1.5.0-RC1"
   //"org.json4s"  %% "json4s-native" % "3.3.0"
   //"org.json4s"  %% "json4s-jackson" % "3.3.0",
@@ -22,8 +23,10 @@ libraryDependencies ++= Seq(
 
 )
 
-
-
+resolvers ++= Seq(
+  "anormcypher" at "http://repo.anormcypher.org/",
+  "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/"
+)
 
 
 
