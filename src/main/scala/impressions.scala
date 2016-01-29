@@ -23,7 +23,13 @@ import scala.sys.process._ // Execute external command
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.anormcypher._ // spark to neo4j
+import org.anormcypher.Neo4jREST._
+//import play.api.libs.ws._
 // without auth
+
+import org.json4s.jackson.JsonMethods._
+import org.json4s.JsonDSL._
+import org.json4s._
 
 // For TESTing
 import org.apache.spark.SparkContext
@@ -101,7 +107,8 @@ object Impressions {
 
     // reset database ... the database is in the node data1
     Process("ssh " + data1_dns + " rm -rf " + neo4j_db)!
-
+    //implicit val wsclient = ning.NingWSClient()    
+    implicit val connection = Neo4jREST.setServer("ec2-52-72-28-165.compute-1.amazonaws.com", 7474, "/home/ubuntu/neo4j-community-2.3.2/data/")
 
     // my operator are        schema
     //                        code id    
@@ -112,17 +119,29 @@ object Impressions {
     // * new tweet        |   5        msg:string  user:string
     // * retweet          |   6        msg:string  user:string original_user:string
    
-     
+    Cypher("CREATE INDEX ON :User(name)").execute()
+    Cypher("CREATE CONSTRAINT ON (user:User) ASSERT user.name IS UNIQUE").execute()
 
+    val command = (cid : Int) => {
+      cid match {
+        case 1 => Cypher("""Merge (n:User {name: "Obama"}) on CREATE set n.created_at = timestamp()""")
+        case 2 => Cypher("""match (n:User {name: "Obama"}) delete n""")
+        case 3 => Cypher("""match (n1:User { name: "Obama" }) , (n2:User { name: "Google" })
+                            MERGE (n1)-[r:follows {created_at = timestamp()}]->(n2)
+                            RETURN r""")
+      }
+    }
 
-    implicit val connection = Neo4jREST(data1_dns, 7474, neo4j_db_dir)
-    val logData = sc.textFile(FILE, 4).cache()
-    val count = logData
-      .flatMap( _.split(" "))
-      .map( w =>
-        Cypher("CREATE(:Word {text:{text}})")
-          .on( "text" -> w ).execute()
-    ).filter( _ ).count()
+    command(1)
+
+    //implicit val connection = Neo4jREST(data1_dns, 7474, neo4j_db_dir)
+    //val logData = sc.textFile(FILE, 4).cache()
+    //val count = logData
+    //  .flatMap( _.split(" "))
+    //  .map( w =>
+    //    Cypher("CREATE(:Word {text:{text}})")
+    //      .on( "text" -> w ).execute()
+    //).filter( _ ).count()
 
 
 

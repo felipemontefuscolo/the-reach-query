@@ -19,20 +19,9 @@ name hashing:
 1 items
 0 -> true
 products:
-7 items
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$1.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$2.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$3.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$4.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$5.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$.class
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild.class
+0 items
 binary dependencies:
-4 items
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/.ivy2/cache/org.scala-sbt/main-settings/jars/main-settings-0.13.7.jar
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/.ivy2/cache/org.scala-sbt/main/jars/main-0.13.7.jar
-/home/ubuntu/the-reach-query/project/Build.scala -> /home/ubuntu/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.7.jar
-/home/ubuntu/the-reach-query/project/Build.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+0 items
 direct source dependencies:
 0 items
 direct external dependencies:
@@ -50,66 +39,28 @@ inheritance internal dependencies:
 inheritance external dependencies:
 0 items
 class names:
-7 items
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$$anonfun$root$1
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$$anonfun$root$2
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$$anonfun$root$3
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$$anonfun$root$4
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild$$anonfun$root$5
+0 items
 used names:
-15 items
-/home/ubuntu/the-reach-query/project/Build.scala -> <init>
-/home/ubuntu/the-reach-query/project/Build.scala -> Build
-/home/ubuntu/the-reach-query/project/Build.scala -> MyBuild
-/home/ubuntu/the-reach-query/project/Build.scala -> Project
-/home/ubuntu/the-reach-query/project/Build.scala -> Reference
-/home/ubuntu/the-reach-query/project/Build.scala -> apply
-/home/ubuntu/the-reach-query/project/Build.scala -> classpathDependency
-/home/ubuntu/the-reach-query/project/Build.scala -> dependsOn
-/home/ubuntu/the-reach-query/project/Build.scala -> file
-/home/ubuntu/the-reach-query/project/Build.scala -> package
-/home/ubuntu/the-reach-query/project/Build.scala -> root
-/home/ubuntu/the-reach-query/project/Build.scala -> sbt
-/home/ubuntu/the-reach-query/project/Build.scala -> sparkOrientdbConnector
-/home/ubuntu/the-reach-query/project/Build.scala -> uri
-/home/ubuntu/the-reach-query/project/Build.scala -> uriToRef
+0 items
 product stamps:
-7 items
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$1.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$2.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$3.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$4.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$$anonfun$root$5.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild$.class -> lastModified(1453820593000)
-/home/ubuntu/the-reach-query/project/target/scala-2.10/sbt-0.13/classes/MyBuild.class -> lastModified(1453820593000)
+0 items
 source stamps:
-1 items
-/home/ubuntu/the-reach-query/project/Build.scala -> hash(db403469e46f4f0f44503cc5313d29ff38834d17)
+0 items
 binary stamps:
-4 items
-/home/ubuntu/.ivy2/cache/org.scala-sbt/main-settings/jars/main-settings-0.13.7.jar -> lastModified(1430156194000)
-/home/ubuntu/.ivy2/cache/org.scala-sbt/main/jars/main-0.13.7.jar -> lastModified(1430152707000)
-/home/ubuntu/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.7.jar -> lastModified(1429631778000)
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> lastModified(1453767842000)
+0 items
 class names:
-4 items
-/home/ubuntu/.ivy2/cache/org.scala-sbt/main-settings/jars/main-settings-0.13.7.jar -> sbt.Reference$
-/home/ubuntu/.ivy2/cache/org.scala-sbt/main/jars/main-0.13.7.jar -> sbt.Build
-/home/ubuntu/.ivy2/cache/org.scala-sbt/sbt/jars/sbt-0.13.7.jar -> sbt.package$
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> java.lang.Object
+0 items
 internal apis:
-1 items
-/home/ubuntu/the-reach-query/project/Build.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHD9L0Y+AHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAG3NyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cLGE/F90AAZub3RpZnlzcQB+AAxE/ekFdAAEd2FpdHNxAH4ADAEn1nZ0AA0kYXNJbnN0YW5jZU9mc3EAfgAMPeom9HQADGJ1aWxkTG9hZGVyc3NxAH4ADFp51QV0AARyb290c3EAfgAMT1VIJ3QABmVxdWFsc3NxAH4ADJudWZp0AAxhc0luc3RhbmNlT2ZzcQB+AAx/3Ho5dAAScHJvamVjdERlZmluaXRpb25zc3EAfgAM9C1ix3QADHN5bmNocm9uaXplZHNxAH4ADFhGy990AA0kaXNJbnN0YW5jZU9mc3EAfgAMdoRHXHQAFnNwYXJrT3JpZW50ZGJDb25uZWN0b3JzcQB+AAyJKISIdAAJbm90aWZ5QWxsc3EAfgAMoEQTNnQAC3Jvb3RQcm9qZWN0c3EAfgAMyMZ3LnQADGlzSW5zdGFuY2VPZnNxAH4ADOPelCJ0AAdNeUJ1aWxkc3EAfgAMMKd8pXQAAj09c3EAfgAMIo6IxXQABWNsb25lc3EAfgAMryZg0nQACHRvU3RyaW5nc3EAfgAMwUqbPHQAAiE9c3EAfgAMtS9uEnQACHByb2plY3Rzc3EAfgAMhYFR/nQACGdldENsYXNzc3EAfgAM+xpMx3QAAm5lc3EAfgAMZQuvEnQAAmVxc3EAfgAMvO9hhnQACHNldHRpbmdzc3EAfgAM3WUdCXQAAiMjc3EAfgAMWu2CqXQACGZpbmFsaXplc3EAfgAMHCPYJXQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4ATXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzxxETIWmc3CQCAAFCAAVmbGFnc3hwAHEAfgArdXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAHBzcgAgeHNidGkuU2FmZUxhenkkJGFub25mdW4kc3RyaWN0JDEAAAAAAAAAAAIAAUwAB3ZhbHVlJDFxAH4AZXhwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AZABwc3EAfgBpc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AE1MAAlpbmhlcml0ZWRxAH4ATUwAB3BhcmVudHNxAH4ATXhxAH4AbXNxAH4AZABwc3EAfgBpdXEAfgBIAAAAAHNxAH4AZABwc3EAfgBpdXEAfgBIAAAAAHNxAH4AZABwc3EAfgBpdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAANzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AA1MAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgBsdAAFQnVpbGRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQAA3NidHNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgCKc3EAfgB9dAAGT2JqZWN0c3EAfgCBc3EAfgCEdXEAfgCHAAAAA3NxAH4AiXQABGphdmFzcQB+AIl0AARsYW5ncQB+AI5zcQB+AH10AANBbnlzcQB+AIFzcQB+AIR1cQB+AIcAAAACc3EAfgCJdAAFc2NhbGFxAH4AjnVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAAAc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFSfnW2VHVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AEcvaG9tZS91YnVudHUvdGhlLXJlYWNoLXF1ZXJ5L3Byb2plY3QvdGFyZ2V0L3NjYWxhLTIuMTAvc2J0LTAuMTMvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFNtANGnkb08PRFA8xTE9Kf84g00X
+0 items
 external apis:
 0 items
 source infos:
-1 items
-/home/ubuntu/the-reach-query/project/Build.scala -> 
-AAAAAAAAAAEAAAEAAAAGADYgICAgICAgICAgICAgICAgICAgIC5kZXBlbmRzT24oc3BhcmtPcmllbnRkYkNvbm5lY3RvcikBAAAAfAEAAAAfAQAfICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAEAMC9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC9CdWlsZC5zY2FsYQEAMC9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC9CdWlsZC5zY2FsYQBkbWV0aG9kIHVyaVRvUmVmIGluIG9iamVjdCBSZWZlcmVuY2UgaXMgZGVwcmVjYXRlZDogRXhwbGljaXRseSB3cmFwIHRoZSBVUkkgaW4gYSBjYWxsIHRvIFJvb3RQcm9qZWN0LgE=
+0 items
 compilations:
-2 items
+6 items
 0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUn5sH6l1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==
 1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUn51tlR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==
+2 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUo1vuZR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==
+3 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUo3ACEV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==
+4 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUo3x1yx1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==
+5 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUo4FYWF1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvcHJvamVjdC90YXJnZXQvc2NhbGEtMi4xMC9zYnQtMC4xMy9jbGFzc2VzdAABLw==

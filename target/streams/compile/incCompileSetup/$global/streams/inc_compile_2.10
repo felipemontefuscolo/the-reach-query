@@ -19,19 +19,23 @@ name hashing:
 1 items
 0 -> true
 products:
-5 items
+6 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$1.class
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$2.class
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$3.class
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$4.class
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$.class
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions.class
 binary dependencies:
-5 items
+8 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.anormcypher/anormcypher_2.10/jars/anormcypher_2.10-0.4.2.jar
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.2.jar
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.2.jar
-/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.sbt/boot/scala-2.10.4/lib/scala-library.jar
-/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.json4s/json4s-ast_2.10/jars/json4s-ast_2.10-3.2.10.jar
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.json4s/json4s-jackson_2.10/jars/json4s-jackson_2.10-3.2.10.jar
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /home/ubuntu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
 direct source dependencies:
 0 items
 direct external dependencies:
@@ -49,24 +53,29 @@ inheritance internal dependencies:
 inheritance external dependencies:
 0 items
 class names:
-5 items
+6 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions$
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions$$anonfun$1
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions$$anonfun$2
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions$$anonfun$3
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions$$anonfun$4
 used names:
-66 items
+76 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> !
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> +
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> <init>
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> AnyRef
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Array
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> ClassTag
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Cypher
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Impressions
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Int
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> JsonDSL
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> JsonMethods
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Level
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Logger
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Neo4jREST
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Ordering
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Predef
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> Process
@@ -84,12 +93,17 @@ used names:
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> apache
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> apply
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> awaitTermination
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> cid
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> collection
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> command
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> data1_dns
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> dstream
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> enqueue
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> execute
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> flatMap
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> getLogger
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> jackson
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> json4s
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> log4j
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> map
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> materializeClassTag
@@ -110,6 +124,7 @@ used names:
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> scala
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> setAppName
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> setLevel
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> setServer
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> spark
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> sparkConf
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> split
@@ -124,40 +139,46 @@ used names:
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> words
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> x
 product stamps:
-5 items
-/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$1.class -> lastModified(1454031702000)
-/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$2.class -> lastModified(1454031702000)
-/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$3.class -> lastModified(1454031702000)
-/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$.class -> lastModified(1454031702000)
-/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions.class -> lastModified(1454031702000)
+6 items
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$1.class -> lastModified(1454087350000)
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$2.class -> lastModified(1454087350000)
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$3.class -> lastModified(1454087350000)
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$$anonfun$4.class -> lastModified(1454087350000)
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions$.class -> lastModified(1454087350000)
+/home/ubuntu/the-reach-query/target/scala-2.10/classes/Impressions.class -> lastModified(1454087350000)
 source stamps:
 1 items
-/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> hash(037dffca230185090fccf15c3a3692953d152589)
+/home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> hash(8355217b428443e1e732c759599fa86bb1e6b0c6)
 binary stamps:
-5 items
+8 items
 /home/ubuntu/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> lastModified(1338025419000)
+/home/ubuntu/.ivy2/cache/org.anormcypher/anormcypher_2.10/jars/anormcypher_2.10-0.4.2.jar -> lastModified(1373884736000)
 /home/ubuntu/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.2.jar -> lastModified(1446582950000)
 /home/ubuntu/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.2.jar -> lastModified(1446582969000)
-/home/ubuntu/.sbt/boot/scala-2.10.4/lib/scala-library.jar -> lastModified(1395179187000)
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> lastModified(1453937256000)
+/home/ubuntu/.ivy2/cache/org.json4s/json4s-ast_2.10/jars/json4s-ast_2.10-3.2.10.jar -> lastModified(1400001518000)
+/home/ubuntu/.ivy2/cache/org.json4s/json4s-jackson_2.10/jars/json4s-jackson_2.10-3.2.10.jar -> lastModified(1400001549000)
+/home/ubuntu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar -> lastModified(1395179187000)
+/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar -> lastModified(1447914400000)
 class names:
-5 items
-/home/ubuntu/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> org.apache.log4j.Logger
-/home/ubuntu/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.2.jar -> org.apache.spark.rdd.RDD$
-/home/ubuntu/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.2.jar -> org.apache.spark.streaming.StreamingContext$
-/home/ubuntu/.sbt/boot/scala-2.10.4/lib/scala-library.jar -> scala.Array
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> java.lang.Object
+8 items
+/home/ubuntu/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> org.apache.log4j.Level
+/home/ubuntu/.ivy2/cache/org.anormcypher/anormcypher_2.10/jars/anormcypher_2.10-0.4.2.jar -> org.anormcypher.Neo4jREST$
+/home/ubuntu/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.2.jar -> org.apache.spark.rdd.RDD
+/home/ubuntu/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.2.jar -> org.apache.spark.streaming.Seconds
+/home/ubuntu/.ivy2/cache/org.json4s/json4s-ast_2.10/jars/json4s-ast_2.10-3.2.10.jar -> org.json4s.JsonDSL$
+/home/ubuntu/.ivy2/cache/org.json4s/json4s-jackson_2.10/jars/json4s-jackson_2.10-3.2.10.jar -> org.json4s.jackson.JsonMethods$
+/home/ubuntu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar -> scala.collection.generic.GenericCompanion
+/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar -> java.lang.Object
 internal apis:
 1 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBLe3QMAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cO+s9oZ0AAZub3RpZnlzcQB+AAxzF9KidAAEd2FpdHNxAH4ADHiEtjF0AA0kYXNJbnN0YW5jZU9mc3EAfgAM3CIfgnQABmVxdWFsc3NxAH4ADIqP3GB0AAxhc0luc3RhbmNlT2ZzcQB+AAzCxUAvdAAMc3luY2hyb25pemVkc3EAfgAMUI7Yt3QADSRpc0luc3RhbmNlT2ZzcQB+AAzPj5z4dAAEbWFpbnNxAH4ADAdM3RR0AAlub3RpZnlBbGxzcQB+AAyrEkjrdAAMaXNJbnN0YW5jZU9mc3EAfgAMr0u4x3QAAj09c3EAfgAMBRtvKXQABWNsb25lc3EAfgAMrqBPPHQAC0ltcHJlc3Npb25zc3EAfgAMAV7yiHQACHRvU3RyaW5nc3EAfgAMdT1O8HQAAiE9c3EAfgAMCZdqbHQACGdldENsYXNzc3EAfgAMtRumgHQAAm5lc3EAfgAMr6I79XQAAmVxc3EAfgAMqfygwXQAAiMjc3EAfgAMr0T1NnQACGZpbmFsaXplc3EAfgAM9BjkJHQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4AQXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzxxETIWmc3CQCAAFCAAVmbGFnc3hwAHEAfgAndXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAXNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBwc3EAfgBYAXNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF9zcQB+AFgBdXEAfgA8AAAAAXNyAA14c2J0aS5hcGkuRGVmUr6f4ny0NmkCAAJMAApyZXR1cm5UeXBldAAQTHhzYnRpL2FwaS9UeXBlO1sAD3ZhbHVlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1BhcmFtZXRlckxpc3Q7eHEAfgBCcQB+AEt1cQB+AEwAAAAAc3EAfgBOAHEAfgAddXEAfgBQAAAAAHNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AF50AARVbml0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgBec3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAACc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AAVzY2FsYXNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgB6dXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+AA1MAAN0cGVxAH4AZ3hwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AU3QABVBsYWludAAEYXJnc3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4AblsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4AXnNxAH4AbXQABUFycmF5cQB+AHN1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4AbXQABlN0cmluZ3NxAH4AcXNxAH4AdHVxAH4AdwAAAANzcQB+AHl0AARqYXZhc3EAfgB5dAAEbGFuZ3EAfgB+cHNxAH4AWAF1cQB+ADwAAAAAcHNxAH4AWAF1cQB+AJIAAAACc3EAfgBtdAAGT2JqZWN0cQB+AJZzcQB+AG10AANBbnlxAH4Ac3BwdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVKLCvnvdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQANi9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFAN9/8ojAYUJD8zxXDo2kpU9FSWJ
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBLe3QMAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cO+s9oZ0AAZub3RpZnlzcQB+AAxzF9KidAAEd2FpdHNxAH4ADHiEtjF0AA0kYXNJbnN0YW5jZU9mc3EAfgAM3CIfgnQABmVxdWFsc3NxAH4ADIqP3GB0AAxhc0luc3RhbmNlT2ZzcQB+AAzCxUAvdAAMc3luY2hyb25pemVkc3EAfgAMUI7Yt3QADSRpc0luc3RhbmNlT2ZzcQB+AAzPj5z4dAAEbWFpbnNxAH4ADAdM3RR0AAlub3RpZnlBbGxzcQB+AAyrEkjrdAAMaXNJbnN0YW5jZU9mc3EAfgAMr0u4x3QAAj09c3EAfgAMBRtvKXQABWNsb25lc3EAfgAMrqBPPHQAC0ltcHJlc3Npb25zc3EAfgAMAV7yiHQACHRvU3RyaW5nc3EAfgAMdT1O8HQAAiE9c3EAfgAMCZdqbHQACGdldENsYXNzc3EAfgAMtRumgHQAAm5lc3EAfgAMr6I79XQAAmVxc3EAfgAMqfygwXQAAiMjc3EAfgAMr0T1NnQACGZpbmFsaXplc3EAfgAM9BjkJHQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4AQXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzxxETIWmc3CQCAAFCAAVmbGFnc3hwAHEAfgAndXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAHBzcgAgeHNidGkuU2FmZUxhenkkJGFub25mdW4kc3RyaWN0JDEAAAAAAAAAAAIAAUwAB3ZhbHVlJDFxAH4AWXhwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWABwc3EAfgBdc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AEFMAAlpbmhlcml0ZWRxAH4AQUwAB3BhcmVudHNxAH4AQXhxAH4AYXNxAH4AWABwc3EAfgBddXEAfgA8AAAAAXNyAA14c2J0aS5hcGkuRGVmUr6f4ny0NmkCAAJMAApyZXR1cm5UeXBldAAQTHhzYnRpL2FwaS9UeXBlO1sAD3ZhbHVlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1BhcmFtZXRlckxpc3Q7eHEAfgBCcQB+AEt1cQB+AEwAAAAAc3EAfgBOAHEAfgAddXEAfgBQAAAAAHNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AGB0AARVbml0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgBgc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAACc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AAVzY2FsYXNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgB+dXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+AA1MAAN0cGVxAH4Aa3hwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AU3QABVBsYWludAAEYXJnc3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4AclsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4AYHNxAH4AcXQABUFycmF5cQB+AHd1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4AcXQABlN0cmluZ3NxAH4AdXNxAH4AeHVxAH4AewAAAANzcQB+AH10AARqYXZhc3EAfgB9dAAEbGFuZ3EAfgCCc3EAfgBYAHBzcQB+AF11cQB+ADwAAAAAc3EAfgBYAHBzcQB+AF11cQB+AJYAAAACc3EAfgBxdAAGT2JqZWN0cQB+AJpzcQB+AHF0AANBbnlxAH4Ad3VyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAAAc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFSjlwG7HVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0ADYvaG9tZS91YnVudHUvdGhlLXJlYWNoLXF1ZXJ5L3RhcmdldC9zY2FsYS0yLjEwL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABSDVSF7QoRD4ecyx1lZn6hrseawxg==
 external apis:
 0 items
 source infos:
 1 items
 /home/ubuntu/the-reach-query/src/main/scala/impressions.scala -> 
-AAAAAAAAAAEAAAEAAABlADggICAgUHJvY2Vzcygic3NoICIgKyBkYXRhMV9kbnMgKyAiIHJtIC1yZiAiICsgbmVvNGpfZGIpIQEAABCcAQAAADcBADcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgAQA9L2hvbWUvdWJ1bnR1L3RoZS1yZWFjaC1xdWVyeS9zcmMvbWFpbi9zY2FsYS9pbXByZXNzaW9ucy5zY2FsYQEAPS9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvc3JjL21haW4vc2NhbGEvaW1wcmVzc2lvbnMuc2NhbGEBZnBvc3RmaXggb3BlcmF0b3IgISBzaG91bGQgYmUgZW5hYmxlZApieSBtYWtpbmcgdGhlIGltcGxpY2l0IHZhbHVlIHNjYWxhLmxhbmd1YWdlLnBvc3RmaXhPcHMgdmlzaWJsZS4KVGhpcyBjYW4gYmUgYWNoaWV2ZWQgYnkgYWRkaW5nIHRoZSBpbXBvcnQgY2xhdXNlICdpbXBvcnQgc2NhbGEubGFuZ3VhZ2UucG9zdGZpeE9wcycKb3IgYnkgc2V0dGluZyB0aGUgY29tcGlsZXIgb3B0aW9uIC1sYW5ndWFnZTpwb3N0Zml4T3BzLgpTZWUgdGhlIFNjYWxhIGRvY3MgZm9yIHZhbHVlIHNjYWxhLmxhbmd1YWdlLnBvc3RmaXhPcHMgZm9yIGEgZGlzY3Vzc2lvbgp3aHkgdGhlIGZlYXR1cmUgc2hvdWxkIGJlIGV4cGxpY2l0bHkgZW5hYmxlZC4B
+AAAAAAAAAAEAAAEAAABtADggICAgUHJvY2Vzcygic3NoICIgKyBkYXRhMV9kbnMgKyAiIHJtIC1yZiAiICsgbmVvNGpfZGIpIQEAABG8AQAAADcBADcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgAQA9L2hvbWUvdWJ1bnR1L3RoZS1yZWFjaC1xdWVyeS9zcmMvbWFpbi9zY2FsYS9pbXByZXNzaW9ucy5zY2FsYQEAPS9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvc3JjL21haW4vc2NhbGEvaW1wcmVzc2lvbnMuc2NhbGEBZnBvc3RmaXggb3BlcmF0b3IgISBzaG91bGQgYmUgZW5hYmxlZApieSBtYWtpbmcgdGhlIGltcGxpY2l0IHZhbHVlIHNjYWxhLmxhbmd1YWdlLnBvc3RmaXhPcHMgdmlzaWJsZS4KVGhpcyBjYW4gYmUgYWNoaWV2ZWQgYnkgYWRkaW5nIHRoZSBpbXBvcnQgY2xhdXNlICdpbXBvcnQgc2NhbGEubGFuZ3VhZ2UucG9zdGZpeE9wcycKb3IgYnkgc2V0dGluZyB0aGUgY29tcGlsZXIgb3B0aW9uIC1sYW5ndWFnZTpwb3N0Zml4T3BzLgpTZWUgdGhlIFNjYWxhIGRvY3MgZm9yIHZhbHVlIHNjYWxhLmxhbmd1YWdlLnBvc3RmaXhPcHMgZm9yIGEgZGlzY3Vzc2lvbgp3aHkgdGhlIGZlYXR1cmUgc2hvdWxkIGJlIGV4cGxpY2l0bHkgZW5hYmxlZC4B
 compilations:
-2 items
-0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUosEwM51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUosK+e91cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+1 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUo5cBux1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi9ob21lL3VidW50dS90aGUtcmVhY2gtcXVlcnkvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=

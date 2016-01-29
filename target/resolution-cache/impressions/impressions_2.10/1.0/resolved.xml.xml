@@ -4,7 +4,7 @@
 		module="impressions_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20160129013426"
+		publication="20160129170848"
 	>
 		<description>
 		Impressions
@@ -34,8 +34,9 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.4" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" conf="scala-tool->default,optional(default);compile->default(compile)"/>
-		<dependency org="org.apache.spark" name="spark-core_2.10" rev="1.5.2" conf="provided->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-core_2.10" rev="1.5.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming_2.10" rev="1.5.2" conf="compile->default(compile)"/>
-		<dependency org="org.anormcypher" name="anormcypher_2.10" rev="0.6.0" conf="compile->default(compile)"/>
+		<dependency org="org.anormcypher" name="anormcypher_2.10" rev="0.4.2" conf="compile->default(compile)"/>
+		<dependency org="org.json4s" name="json4s-jackson_2.10" rev="3.2.10" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
