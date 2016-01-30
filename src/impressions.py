@@ -1,27 +1,42 @@
+import sys
+import time
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
-# Create a local StreamingContext with two working thread and batch interval of 1 second
-sc = SparkContext("local[2]", "NetworkWordCount")
-ssc = StreamingContext(sc, 1)
+if __name__ == "__main__":
 
-# Create a DStream that will connect to hostname:port, like localhost:9999
-lines = ssc.socketTextStream("localhost", 9999)
+    # Create a local StreamingContext with two working thread and batch interval of 1 second
+    sc = SparkContext("local[2]", "NetworkWordCount")
+    ssc = StreamingContext(sc, 1)
+   
+    lines = sc.textFile("test.txt", 1)
+    #counts = lines.flatMap(lambda x: x.split(' ')) \
+    #              .map(lambda x: (x, 1)) \
+    #              .reduceByKey(add)
+    
+    # Create the queue through which RDDs can be pushed to
+    # a QueueInputDStream
+    rddQueue = []
+    rddQueue.append(lines)
+    
+    # Create the QueueInputDStream and use it do some processing
+    inputStream = ssc.queueStream(rddQueue)
+    mappedStream = inputStream.flatMap(lambda x: x.split(' ')) \
+                              .map(lambda x: (x, 1))
+    reducedStream = mappedStream.reduceByKey(lambda a, b: a + b)
+    reducedStream.pprint()
+    
+    logger = sc._jvm.org.apache.log4j
+    logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
+    logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
+    
+    #ssc.start()             # Start the computation
+    #ssc.awaitTermination()  # Wait for the computation to terminate
+    
+    ssc.start()
+    time.sleep(6)
+    ssc.stop(stopSparkContext=True, stopGraceFully=True)
 
-# Split each line into words
-words = lines.flatMap(lambda line: line.split(" "))
 
-# Count each word in each batch
-pairs = words.map(lambda word: (word, 1))
-wordCounts = pairs.reduceByKey(lambda x, y: x + y)
-
-# Print the first ten elements of each RDD generated in this DStream to the console
-wordCounts.pprint()
-
-logger = sc._jvm.org.apache.log4j
-logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
-logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
-
-ssc.start()             # Start the computation
-ssc.awaitTermination()  # Wait for the computation to terminate
 
