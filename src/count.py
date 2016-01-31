@@ -14,13 +14,12 @@ if __name__ == "__main__":
     ssc = StreamingContext(sc, 1)
     sql = SQLContext(sc)
    
-    lines = sc.textFile("./db2", 1)
-    counts = lines.flatMap(lambda x: x.split('\n'))
-    #              .map(lambda x: (x, 1)) \
-    #             .reduceByKey(lambda a, b: a + b) \
-    #             .sortByKey(True) 
+    lines = sc.textFile("./db", 1)
+    counts = lines.flatMap(lambda x: x.split('\n')) \
+                  .map(lambda x: (x, 1)) \
+                  .reduceByKey(lambda a, b: a + b) \
+                  .sortByKey(True) 
     # Try this after .reduceByKey: .map(lambda x:(x[0],x[1])) \ # which is faster? I don't know   
-    #for val in counts.collect(): print val
 
     #// my operator are        schema
     #//                        code id:short            
@@ -37,12 +36,12 @@ if __name__ == "__main__":
     rddQueue.append(counts)
     
     # Create the QueueInputDStream and use it do some processing
-    #inputStream = ssc.queueStream(rddQueue)
+    inputStream = ssc.queueStream(rddQueue)
     #mappedStream = inputStream.flatMap(lambda x: x.split(' ')) \
     #                          .map(lambda x: (x, 1))
     #reducedStream = mappedStream.reduceByKey(lambda a, b: a + b)
     #sortedStream = reducedStream.sortByKey()
-    #inputStream.pprint()
+    inputStream.pprint()
     
     logger = sc._jvm.org.apache.log4j
     logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
