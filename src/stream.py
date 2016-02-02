@@ -69,51 +69,57 @@ if __name__ == "__main__":
 
 
     def pushNode(x):
-       tx.append("MERGE (n:User { id:{N} }) RETURN n", {"N": x['id']})
-       tx.process()
+       return cypher.execute("MERGE (n:User { id:{N} }) RETURN n", {"N": x['id']})
 
     def popNode(x):
-       tx.append("MATCH (n:User { id:{N} }) DELETE n", {"N": x['id']})
-       tx.process()
+       return cypher.execute("MATCH (n:User { id:{N} }) DELETE n", {"N": x['id']})
 
     def pushFollow(x):
-       tx.append("MATCH (b:User {id:{AA}}) WITH b MATCH (a:User {id:{BB}}) CREATE (a)-[:follows]->(b)", { "AA": x['follower_id'], "BB": x['followed_id'] })
-       tx.process()
+       return cypher.execute("""MATCH (a:User {id:{AA}})
+                                WITH a
+                                MATCH (b:User {id:{BB}})
+                                CREATE (a)-[r:follows]->(b)
+                                return r""", { "AA": x['follower_id'], "BB": x['followed_id'] })
 
     def popFollow(x):
-       tx.append("MATCH (b:User {id:{AA}}) WITH b MATCH (a:User {id:{BB}}) DELETE (a)-[:follows]->(b)", { "AA": x['follower_id'], "BB": x['followed_id'] })
-       tx.process()
+       return cypher.execute("""MATCH (a:User {id:{AA}})-[r]->(b:User {id:{BB}})
+                                delete r""", { "AA": x['follower_id'], "BB": x['followed_id'] })
 
     def pushTweet(x):
-       tx.append("""MERGE (n:Tweet { id:{TID} })
-                    ON CREATE SET n.msg=TMSG
-                    WITH n
-                    MATCH (u:User { id:{UID}})
-                    CREATE (u)-[:tweeted]->(n)
-                    """, {"TID": x['id'], "UID": x['user_id']})
-       tx.process()
+       return cypher.execute("""MERGE (n:Tweet { id:{TID} })
+                                ON CREATE SET n.msg={TMSG}
+                                WITH n
+                                MATCH (u:User { id:{UID}})
+                                CREATE (u)-[r:tweeted]->(n)
+                                return r""", {"TID":x['id'], "UID":x['user_id'], "TMSG":x['msg'] })
 
-    def pushOp(x):
-        y = json.loads(x)
-        return {
-            1 : pushNode(y),
-            2 : popNode(y),
-            3 : pushFollow(y),
-            4 : popFollow(y),
-            5 : pushTweet(y)
-        }[x]
+    def pushOp(y):
+        x = json.loads(y)
+        print ("-------------------------------------------", x['code'], x)
+        funcs = {
+            1 : pushNode,
+            2 : popNode,
+            3 : pushFollow,
+            4 : popFollow,
+            5 : pushTweet
+        }
+        ret = funcs[x['code']](x)
+        print( ret )
 
     
-    tx = graph.cypher.begin()
+    #tx = graph.cypher.begin()
 
-    def echo(time, rdd):
-        counts = "Counts at time %s %s" % (time, rdd.collect())
-        print(counts)
+    def processRDD(timei, rdd):
+        c = rdd.collect()
+        #print(c)
+        for cc in c:
+            pushOp(cc[1])
+        #rdd.foreach(pp)
     
-    tx.commit() 
+    #tx.commit() 
 
     #inputStream.foreachRDD(lambda rdd: rdd.foreachPartition(sendPartition))
-    inputStream.foreachRDD(echo)
+    inputStream.foreachRDD(processRDD)
 
     #inputStream.pprint()
    
