@@ -4,14 +4,14 @@ import time
 import json
 
 from pyspark import SparkContext
-from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext # needed to transform PipelinedRDD to RDD for the functions sortByKey
 import pyspark
+from py2neo import Graph, Node, authenticate, Relationship
 
 # u = user id
 # ts = timestamp
 # follows = rdd containing json with the pair (follower, followed)
-def getFollowers(u, ts, follows, unfollows)
+def getFollowers(u, ts, follows, unfollows):
     "get followers from a given user"
     return 0
 
@@ -25,20 +25,23 @@ def filterReTweet(x):    xj = json.loads(x); return True if ('code' in xj and xj
 if __name__ == "__main__":
 
     # Create a local StreamingContext with two working thread and batch interval of 1 second
-    sc = SparkContext("local[2]", "NetworkWordCount")
-    ssc = StreamingContext(sc, 1)
+    sc = SparkContext() # loads config from ./bin/spark-submit
     sql = SQLContext(sc)
    
-    lines = sc.textFile("./db", 1)
-    follows = lines.filter(filterFollow).cache()
-    unfollows = lines.filter(filterUnFollow).cache()
+    graph =Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
+    cypher = graph.cypher
+
+    graph.delete_all()
+    cypher.execute("CREATE CONSTRAINT ON (n:User) ASSERT n.name IS UNIQUE")
+
+    all_ops   = sc.textFile("./db/*/",False) 
     #lines.filter()
     #counts = lines.map(lambda x: x)
     #              .map(lambda x: (x, 1)) \
     #             .reduceByKey(lambda a, b: a + b) \
     #             .sortByKey(True) 
     # Try this after .reduceByKey: .map(lambda x:(x[0],x[1])) \ # which is faster? I don't know   
-    for val in follows.collect(): print val
+    for val in all_ops.collect(): print val
     #counts.foreach(print)
 
     #// my operator are        schema
