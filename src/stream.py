@@ -36,7 +36,8 @@ if __name__ == "__main__":
     cypher = graph.cypher
 
     graph.delete_all()
-    cypher.execute("CREATE CONSTRAINT ON (n:User) ASSERT n.id IS UNIQUE")
+    cypher.execute("CREATE CONSTRAINT ON (n:User)  ASSERT n.id IS UNIQUE")
+    cypher.execute("CREATE CONSTRAINT ON (n:Tweet) ASSERT n.id IS UNIQUE")
 
 
     #all_ops = sc.textFile("./db/*/",False)
@@ -69,7 +70,7 @@ if __name__ == "__main__":
 
 
     def pushNode(x):
-       return cypher.execute("MERGE (n:User { id:{N} }) RETURN n", {"N": x['id']})
+       return cypher.execute("MERGE (n:User { id:{N} }) ON CREATE SET n.name={NAME} RETURN n", {"N": x['id'], "NAME": x['name']})
 
     def popNode(x):
        return cypher.execute("MATCH (n:User { id:{N} }) DELETE n", {"N": x['id']})
