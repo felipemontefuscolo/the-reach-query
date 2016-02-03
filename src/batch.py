@@ -8,19 +8,6 @@ from pyspark.sql import SQLContext # needed to transform PipelinedRDD to RDD for
 import pyspark
 from py2neo import Graph, Node, authenticate, Relationship
 
-# u = user id
-# ts = timestamp
-# follows = rdd containing json with the pair (follower, followed)
-def getFollowers(u, ts, follows, unfollows):
-    "get followers from a given user"
-    return 0
-
-def filterNewUser(x):    xj = json.loads(x); return True if ('code' in xj and xj['code'] == 1) else False
-def filterDeleteUser(x): xj = json.loads(x); return True if ('code' in xj and xj['code'] == 2) else False
-def filterFollow(x):     xj = json.loads(x); return True if ('code' in xj and xj['code'] == 3) else False
-def filterUnFollow(x):   xj = json.loads(x); return True if ('code' in xj and xj['code'] == 4) else False
-def filterNewTweet(x):   xj = json.loads(x); return True if ('code' in xj and xj['code'] == 5) else False
-def filterReTweet(x):    xj = json.loads(x); return True if ('code' in xj and xj['code'] == 6) else False
 
 if __name__ == "__main__":
 
@@ -28,20 +15,54 @@ if __name__ == "__main__":
     sc = SparkContext() # loads config from ./bin/spark-submit
     sql = SQLContext(sc)
    
-    graph =Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
-    cypher = graph.cypher
+    
 
-    graph.delete_all()
-    cypher.execute("CREATE CONSTRAINT ON (n:User) ASSERT n.name IS UNIQUE")
+    def concat(a,b):
+        c = a
+        c.extend(b)
+        c = list(set(c))
+        return c
 
-    all_ops   = sc.textFile("./db/*/",False) 
-    #lines.filter()
+    def getReach(users):
+        "users = vector of users"
+        f = []
+        f.extend(users)
+        #cypher.execute("match (n:User {id:{ID}}) with n match (p-->n) return p.id", {"ID":u})
+        #cypher.execute("match (n) return n")
+        #for u in users:
+        #    for v in graph.cypher.stream("match (n:User {id:{ID}}) with n match (p-->n) return p.id", {"ID":u}):
+        #        f.append(v)
+        return len(set(f))
+            
+    def toTuple(x):
+        y = json.loads(x)
+        return (y['msg'], y['user_id'])
+   
+    def fromPartition(part):
+        graph =Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
+        cypher = graph.cypher    
+        for line in part:
+            print(line[0], line[1])
+
+    reach = sc.textFile("./db/tweets/*",False) \
+              .map( toTuple ) \
+              .reduceByKey(lambda a,b: concat(a,b))
+    reach.foreachPartition(fromPartition) #mapPartitions(fromPartition)
+    
+    #for r in reach:
+    #    print(r[0], getReach(r[1]))
+
+    def g(x):
+        pass
+    reach.foreach(g)
+
+
     #counts = lines.map(lambda x: x)
     #              .map(lambda x: (x, 1)) \
     #             .reduceByKey(lambda a, b: a + b) \
     #             .sortByKey(True) 
     # Try this after .reduceByKey: .map(lambda x:(x[0],x[1])) \ # which is faster? I don't know   
-    for val in all_ops.collect(): print val
+    #for val in all_ops.collect(): print val
     #counts.foreach(print)
 
     #// my operator are        schema

@@ -15,9 +15,15 @@ cypher = graph.cypher
 #alice_knows_bob = Relationship(alice, "KNOWS", bob)
 #graph.create(alice_knows_bob)
 
-result = graph.cypher.execute('MATCH (a)-[]->(b) RETURN id(a), id(b)')
-for row in result:
-    print(row[0], row[1])
+#result = graph.cypher.execute('MATCH (a)-[]->(b) RETURN id(a), id(b)')
+#for row in result:
+#    print(row[0], row[1])
 
-for r in graph.cypher.stream("MATCH (a)-[]->(b) RETURN id(a), id(b)"):
+for r in graph.cypher.stream("MATCH (a)-[]->(b) RETURN a.id, b.id"):
     print (r[0],r[1])
+
+for v in graph.cypher.stream("match (n:User {id:101}) with n match (p-->n) return p.id"):
+    print v[0]
+
+print graph.cypher.execute("match (n:User {id:101}) with n match (p-->n) return p.id")
+
