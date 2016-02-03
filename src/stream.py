@@ -95,7 +95,6 @@ if __name__ == "__main__":
 
     def pushOp(y):
         x = json.loads(y)
-        print ("-------------------------------------------", x['code'], x)
         funcs = {
             1 : pushNode,
             2 : popNode,
@@ -103,9 +102,10 @@ if __name__ == "__main__":
             4 : popFollow,
             5 : pushTweet
         }
-        ret = funcs[x['code']](x)
-        print( ret )
-
+        try:
+            ret = funcs[x['code']](x)
+        except:
+            print "ERRRRRRRRRRRRROOOOOOO: ", x
     
     #tx = graph.cypher.begin()
 
