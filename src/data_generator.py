@@ -81,9 +81,9 @@ for i in range(0L, n_tweets):
 
 f.close()
 
-l = len(str(ts))
+l = len(str(ts // window_size))
 
-os.system("cd " + main_folder + "; split -a " + str(l) + " -d -l " + str(window_size) + " " + w_path + "/everything.txt")
+os.system("cd " + main_folder + "; split --additional-suffix=.dat -a " + str(l) + " -d -l " + str(window_size) + " " + w_path + "/everything.txt")
 os.system("rm -f " + w_path + "/everything.txt")
 
 
