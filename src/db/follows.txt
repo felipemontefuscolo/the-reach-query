@@ -1,0 +1,5 @@
+{"code":"follow","id":100,"ts":11,"follower_id":102,"followed_id":101}
+{"code":"follow","id":101,"ts":11,"follower_id":103,"followed_id":101}
+{"code":"follow","id":102,"ts":11,"follower_id":104,"followed_id":101}
+{"code":"follow","id":103,"ts":11,"follower_id":104,"followed_id":102}
+{"code":"follow","id":104,"ts":11,"follower_id":105,"followed_id":102}

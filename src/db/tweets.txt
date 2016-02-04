@@ -1,0 +1,2 @@
+{"code":"tweet","id":100,"ts":13,"msg":"we love big data","user_id":101}
+{"code":"tweet","id":101,"ts":14,"msg":"we love big data","user_id":102}

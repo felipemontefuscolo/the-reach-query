@@ -9,20 +9,6 @@ from pyspark.sql import SQLContext, Row # needed to transform PipelinedRDD to RD
 #import pyspark
 from py2neo import Graph, Node, authenticate, Relationship
 
-# u = user id
-# ts = timestamp
-# follows = rdd containing json with the pair (follower, followed)
-def getFollowers(u, ts, follows, unfollows):
-    "get followers from a given user"
-    return 0
-
-def filterNewUser(x):    xj = json.loads(x); return True if ('code' in xj and xj['code'] == 1) else False
-def filterDeleteUser(x): xj = json.loads(x); return True if ('code' in xj and xj['code'] == 2) else False
-def filterFollow(x):     xj = json.loads(x); return True if ('code' in xj and xj['code'] == 3) else False
-def filterUnFollow(x):   xj = json.loads(x); return True if ('code' in xj and xj['code'] == 4) else False
-def filterNewTweet(x):   xj = json.loads(x); return True if ('code' in xj and xj['code'] == 5) else False
-def filterReTweet(x):    xj = json.loads(x); return True if ('code' in xj and xj['code'] == 6) else False
-
 
 if __name__ == "__main__":
 
@@ -39,15 +25,15 @@ if __name__ == "__main__":
     cypher.execute("CREATE CONSTRAINT ON (n:User)  ASSERT n.id IS UNIQUE")
     cypher.execute("CREATE CONSTRAINT ON (n:Tweet) ASSERT n.id IS UNIQUE")
 
-
+   
+    #test = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False)
     #all_ops = sc.textFile("./db/*/",False)
-    all_ops = sc.textFile("./db/*/",False) \
+    all_ops = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False) \
              .map(lambda x : (json.loads(x)['ts'], x)) \
              .sortByKey()
     #         .map(lambda x : (x[0], pushOp(x[1]))
              
     #for val in all_ops.collect(): print val
-
 
     #// my operator are        schema
     #//                        code id:short            
@@ -56,7 +42,6 @@ if __name__ == "__main__":
     #// * follow           |   3              id:Long ts:Long follower_id:Long  followed_id:Long
     #// * unfollow         |   4              id:Long ts:Long follower_id:Long  followed_id:Long
     #// * new tweet        |   5              id:Long ts:Long msg:string  user_id:Long
-    #// * retweet          |   6              id:Long ts:Long msg:string  user_id:Long original_user_id:Long
  
     # Create the queue through which RDDs can be pushed to
     # a QueueInputDStream
@@ -97,16 +82,13 @@ if __name__ == "__main__":
     def pushOp(y):
         x = json.loads(y)
         funcs = {
-            1 : pushNode,
-            2 : popNode,
-            3 : pushFollow,
-            4 : popFollow,
-            5 : pushTweet
+            "user" :     pushNode,
+            "del_user" : popNode,
+            "follow" :   pushFollow,
+            "unfollow" : popFollow,
+            "tweet" :    pushTweet
         }
-        try:
-            ret = funcs[x['code']](x)
-        except:
-            print "ERRRRRRRRRRRRROOOOOOO: ", x
+        ret = funcs[x['code']](x)
     
     #tx = graph.cypher.begin()
 
