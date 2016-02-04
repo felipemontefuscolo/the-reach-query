@@ -1,4 +1,4 @@
-#from __future__ import print_function # print rdd
+from __future__ import print_function # print rdd
 import sys
 import time
 import json
@@ -8,9 +8,13 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext, Row # needed to transform PipelinedRDD to RDD for the functions sortByKey
 #import pyspark
 from py2neo import Graph, Node, authenticate, Relationship
+from pyspark.streaming.kafka import KafkaUtils
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage:submit ....  stream.py <zk> <topic>")
+        exit(-1)
 
     # Create a local StreamingContext with two working thread and batch interval of 1 second
     #sc = SparkContext("local[2]", "Stream")
@@ -25,13 +29,14 @@ if __name__ == "__main__":
     cypher.execute("CREATE CONSTRAINT ON (n:User)  ASSERT n.id IS UNIQUE")
     cypher.execute("CREATE CONSTRAINT ON (n:Tweet) ASSERT n.id IS UNIQUE")
 
-   
+    zkQuorum, topic = sys.argv[1:] 
     #test = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False)
-    #all_ops = sc.textFile("./db/*/",False)
-    all_ops = sc.textFile("/home/ubuntu/db/test01/x*",False) \
-             .map(lambda x : (json.loads(x)['ts'], x)) \
-             .sortByKey()
-    #         .map(lambda x : (x[0], pushOp(x[1]))
+    all_ops = KafkaUtils.createStream(ssc, zkQuorum, "Graph1", {topic: 1}) 
+    all_ops.pprint()
+    all_ops.map(lambda x : (json.loads(x)['ts'], x))
+    #all_ops = sc.textFile("/home/ubuntu/db/test01/x*",False) \
+    #         .map(lambda x : (json.loads(x)['ts'], x)) \
+    #         .sortByKey()
              
     #for val in all_ops.collect(): print val
 
@@ -45,11 +50,11 @@ if __name__ == "__main__":
  
     # Create the queue through which RDDs can be pushed to
     # a QueueInputDStream
-    rddQueue = []
-    rddQueue.append(all_ops)
+    #rddQueue = []
+    #rddQueue.append(all_ops)
     
     # Create the QueueInputDStream and use it do some processing
-    inputStream = ssc.queueStream(rddQueue)
+    #inputStream = ssc.queueStream(rddQueue)
     #mappedStream = inputStream.map(lambda x : (json.loads(x)['ts'], x)) \
      #                         .sortByKey()
 
@@ -102,13 +107,14 @@ if __name__ == "__main__":
     #tx.commit() 
 
     #inputStream.foreachRDD(lambda rdd: rdd.foreachPartition(sendPartition))
-    inputStream.foreachRDD(processRDD)
+    #inputStream.foreachRDD(processRDD)
+    all_ops.foreachRDD(processRDD)
 
     #inputStream.pprint()
    
-    logger = sc._jvm.org.apache.log4j
-    logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
-    logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
+    #logger = sc._jvm.org.apache.log4j
+    #logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
+    #ogger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
     
     #ssc.start()             # Start the computation
     #ssc.awaitTermination()  # Wait for the computation to terminate
@@ -117,8 +123,9 @@ if __name__ == "__main__":
 
  
     ssc.start()
-    time.sleep(20)
-    ssc.stop(stopSparkContext=True, stopGraceFully=True)
+    #time.sleep(20)
+    #ssc.stop(stopSparkContext=True, stopGraceFully=True)
+    ssc.awaitTermination()
     #sc.stop()
 
 
