@@ -28,7 +28,7 @@ if __name__ == "__main__":
    
     #test = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False)
     #all_ops = sc.textFile("./db/*/",False)
-    all_ops = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False) \
+    all_ops = sc.textFile("/home/ubuntu/db/test01/x*",False) \
              .map(lambda x : (json.loads(x)['ts'], x)) \
              .sortByKey()
     #         .map(lambda x : (x[0], pushOp(x[1]))
@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
  
     ssc.start()
-    time.sleep(6)
+    time.sleep(20)
     ssc.stop(stopSparkContext=True, stopGraceFully=True)
     #sc.stop()
 
