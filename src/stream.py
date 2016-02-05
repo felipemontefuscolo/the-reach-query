@@ -77,12 +77,15 @@ if __name__ == "__main__":
                                 delete r""", { "AA": x['follower_id'], "BB": x['followed_id'] })
 
     def pushTweet(x):
-       return cypher.execute("""MERGE (n:Tweet { id:{TID} })
-                                ON CREATE SET n.msg={TMSG}
-                                WITH n
+       return cypher.execute("""MERGE (t:Tweet { id:{TID} })
+                                ON CREATE SET t.msg={TMSG}
+                                WITH t
                                 MATCH (u:User { id:{UID}})
-                                CREATE (u)-[r:tweeted]->(n)
-                                return r""", {"TID":x['id'], "UID":x['user_id'], "TMSG":x['msg'] })
+                                CREATE (u)-[r:tweeted {ts:{TS}}]->(t)
+                                CREATE (u)-[l:viewd {ts:{TS}}]->(t)
+                                WITH t,u
+                                MATCH (f)-->(u)
+                                CREATE (f)-[:viewd {ts:{TS}}]->(t)""", {"TID":x['id'], "UID":x['user_id'], "TMSG":x['msg'], "TS":x['ts'] })
 
     def pushOp(y):
         x = json.loads(y)
