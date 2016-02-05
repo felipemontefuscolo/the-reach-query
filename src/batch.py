@@ -15,16 +15,9 @@ if __name__ == "__main__":
     sc = SparkContext() # loads config from ./bin/spark-submit
     sql = SQLContext(sc)
    
-    def concat(a,b):
-        c = a
-        c.extend(b)
-        c = list(set(c))
-        return c
+    def getViewers(xx): # x = (timestamp, message)
+        pass
 
-    def toTuple(x):
-        y = json.loads(x)
-        return (y['msg'], [y['user_id']])
-  
     # The py2neo connection here is not serializable as it opens connections
     # to the target DB that are bound to the machine where it's created.
     # The solution is create a cypher.graph instance per partition
@@ -44,11 +37,20 @@ if __name__ == "__main__":
             print pair[0], "; reach = ", reach, "impressions = ", impressions
 
 
-    reach = sc.textFile("./db/tweets/*",False) \
-              .map( toTuple ) \
-              .reduceByKey(lambda a,b: concat(a,b))
+    reach = sc.textFile("/home/ubuntu/db/simple_test/*", False) \
+              .map( lambda x: json.loads(x) ) \
+              .filter( lambda x: x['code']=="tweet" ) \
+              .map( lambda x: (x['ts'], x['msg'], x['id']))      # (timestamp, message)
 
-    reach.foreachPartition(getReach) #mapPartitions(fromPartition)
+    n_parts = reach._jrdd.splits().size()
+
+    reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts)
+     #    .reduceByKey(lambda a,b: concat(a,b))
+
+    for q in reach.collect():
+        print q
+
+    #reach.foreachPartition(getReach) #mapPartitions(fromPartition)
     
     #// my operator are        schema
     #//                        code id:short            
