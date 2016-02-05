@@ -1,0 +1,13 @@
+{"code":"user","id":101,"ts":10,"name":"one"}
+{"code":"user","id":101,"ts":10,"name":"one"}
+{"code":"user","id":102,"ts":10,"name":"two"}
+{"code":"user","id":103,"ts":10,"name":"three"}
+{"code":"user","id":104,"ts":10,"name":"four"}
+{"code":"user","id":105,"ts":10,"name":"five"}
+{"code":"follow","id":100,"ts":11,"follower_id":102,"followed_id":101}
+{"code":"follow","id":101,"ts":11,"follower_id":103,"followed_id":101}
+{"code":"follow","id":102,"ts":11,"follower_id":104,"followed_id":101}
+{"code":"follow","id":103,"ts":11,"follower_id":104,"followed_id":102}
+{"code":"follow","id":104,"ts":11,"follower_id":105,"followed_id":102}
+{"code":"tweet","id":100,"ts":13,"msg":"we love big data","user_id":101}
+{"code":"tweet","id":101,"ts":14,"msg":"we love big data","user_id":102}
