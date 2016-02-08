@@ -15,8 +15,6 @@ if __name__ == "__main__":
     sc = SparkContext() # loads config from ./bin/spark-submit
     sql = SQLContext(sc)
    
-    def getViewers(xx): # x = (timestamp, message)
-        pass
 
     # The py2neo connection here is not serializable as it opens connections
     # to the target DB that are bound to the machine where it's created.
@@ -25,29 +23,50 @@ if __name__ == "__main__":
     def getReach(partition):
         graph = Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
         cypher = graph.cypher    
-        for pair in partition: # pair (tweet, users)
+        for triple in partition: # triple = (timestamp, message, id)
             reach = 0
-            f = []
-            f.extend(pair[1])
-            for u in pair[1]:
-                for v in cypher.stream("match (n:User {id:{ID}}) with n match (p-->n) return p.id", {"ID":u}):
-                    f.append(v[0])
-            reach = len(set(f))
-            impressions = len(f)
-            print pair[0], "; reach = ", reach, "impressions = ", impressions
+            v = [] # vector of viewers
+            tweet = triple[2]
+            for viewer in cypher.stream("match (t:Tweet {id:{ID}}) with t match (u)-[r:viewed]->(t) return id(r)", {"ID":tweet}):
+                v.append(viewer[0])
+            reach = len(set(v))
+            impressions = len(v)
+            print triple[1], "; reach = ", reach, "impressions = ", impressions
 
+    def toReach(partition):
+        graph = Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
+        cypher = graph.cypher
+        result = []
+        for my_tuple in partition:
+            viewers = []
+            for i in my_tuple[1]:
+                tweet_id = i[1]
+                for viewer in cypher.stream("match (t:Tweet {id:{ID}}) with t match (u)-[:viewed]->(t) return id(u)", {"ID":tweet_id}):
+                    viewers.append(viewer[0])
+            reach = len(set(viewers))
+            impressions = len(viewers)
+            print my_tuple[0], "; reach = ", reach, " impressions = ", impressions, " viewers = ", viewers
+            msg = my_tuple[0]
+            result.append( (msg, reach, impressions)  )
+        return result
 
     reach = sc.textFile("/home/ubuntu/db/simple_test/*", False) \
               .map( lambda x: json.loads(x) ) \
               .filter( lambda x: x['code']=="tweet" ) \
-              .map( lambda x: (x['ts'], x['msg'], x['id']))      # (timestamp, message)
+              .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ) \
+              .groupByKey() \
+              .mapPartitions(toReach)
 
-    n_parts = reach._jrdd.splits().size()
+    #n_parts = reach._jrdd.splits().size()
+    #reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts) # load balance
 
-    reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts)
-     #    .reduceByKey(lambda a,b: concat(a,b))
+    #reach.foreachPartition(getReach)
+    #reach.foreachPartition(toReach)
 
+   
+    #reach.collect()
     for q in reach.collect():
+     #   pass
         print q
 
     #reach.foreachPartition(getReach) #mapPartitions(fromPartition)

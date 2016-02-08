@@ -82,10 +82,10 @@ if __name__ == "__main__":
                                 WITH t
                                 MATCH (u:User { id:{UID}})
                                 CREATE (u)-[r:tweeted {ts:{TS}}]->(t)
-                                CREATE (u)-[l:viewd {ts:{TS}}]->(t)
+                                CREATE (u)-[l:viewed {ts:{TS}}]->(t)
                                 WITH t,u
                                 MATCH (f)-->(u)
-                                CREATE (f)-[:viewd {ts:{TS}}]->(t)""", {"TID":x['id'], "UID":x['user_id'], "TMSG":x['msg'], "TS":x['ts'] })
+                                CREATE (f)-[:viewed {ts:{TS}}]->(t)""", {"TID":x['id'], "UID":x['user_id'], "TMSG":x['msg'], "TS":x['ts'] })
 
     def pushOp(y):
         x = json.loads(y)

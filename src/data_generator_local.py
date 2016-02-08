@@ -5,6 +5,7 @@ import os
 import numpy
 from math import *
 from collections import OrderedDict
+import names
 
 
 #########################################################
@@ -15,11 +16,12 @@ from collections import OrderedDict
 max_n_chars = 1 # maximum number of characters in user names. 4 will generator  formula:
 n_users = 26L*(1 - 26**max_n_chars)//(1-26)
 window_size = 5 # dimensionless time: number of requests. Must be multiple of 5
-n_tweets = 4L*n_users
+n_tweets = 4L*n_users # WARNING: it needs to be multiple of n_users
+n_unique_tweets = n_users // 3 + 1
 followers_mean = 500/(1 + exp(-1e-5*(n_users-350000))) # average is limited to 500 followers
 followers_dev = 0.5*abs(n_users/4 - followers_mean)
 
-main_folder = "/home/ubuntu/db/test01"
+main_folder = "/home/ubuntu/db/test02"
 
 #########################################################
 
@@ -48,12 +50,14 @@ print "deviation number of followers: ", followers_dev
 print ""
 
 w_path = create_window_path(0)
+os.system("rm -f " + w_path + "/*") # CLEAN
 f = open(w_path + "/everything.txt", "w")
+f_tweet = open(w_path + "/tweets_only.txt", "w")
 
 ts = 0L
 # USERS
 for i in range(0L, n_users):
-    json_str = json.dumps({"code":"user", "id":i, "ts":ts, "name":str(i)})
+    json_str = json.dumps({"code":"user", "id":i, "ts":ts, "name":names.get_first_name()})
     f.write(json_str + "\n")
     ts += 1
 
@@ -71,19 +75,29 @@ for i in range(0L, n_users):
         f.write(json_str + "\n")
 
 # TWEETS
+with open('dictionary.json') as raw_tt:
+    tt = json.load(raw_tt)
+tt = list( k+": "+v for k,v in tt.items() )
+
 for i in range(0L, n_tweets):
     user = numpy.random.randint(0,n_users)
-    msg = user % (user//3 + 1)
-    json_str = json.dumps({"code":"tweet","id":i,"ts":ts,"msg":str(msg),"user_id":user})
+    msg = (user % n_unique_tweets) % len(tt)
+    msg = tt[msg]
+    json_str = json.dumps({"code":"tweet","id":i,"ts":ts,"msg":msg,"user_id":user})
     f.write(json_str + "\n")
+    f_tweet.write(json_str + "\n")
     ts += 1
  
 
 f.close()
+f_tweet.close()
 
 l = len(str(ts // window_size))
 
 os.system("cd " + main_folder + "; split --additional-suffix=.dat -a " + str(l) + " -d -l " + str(window_size) + " " + w_path + "/everything.txt")
 os.system("rm -f " + w_path + "/everything.txt")
+
+os.system("cd " + main_folder + "; split --additional-suffix=.dat -a " + str(l) + " -d -l " + str(window_size) + " " + w_path + "/tweets_only.txt t")
+os.system("rm -f " + w_path + "/tweets_only.txt")
 
 
