@@ -117,7 +117,7 @@ if __name__ == "__main__":
    
     #logger = sc._jvm.org.apache.log4j
     #logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
-    #ogger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
+    #logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
     
     #ssc.start()             # Start the computation
     #ssc.awaitTermination()  # Wait for the computation to terminate
