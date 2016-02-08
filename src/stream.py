@@ -32,7 +32,7 @@ if __name__ == "__main__":
     zkQuorum, topic = sys.argv[1:] 
     #test = sc.textFile("/home/ubuntu/the-reach-query/src/db/*",False)
     all_ops = KafkaUtils.createStream(ssc, zkQuorum, "Graph1", {topic: 1}) 
-    all_ops.pprint()
+    #all_ops.pprint()
     all_ops.map(lambda x : (json.loads(x)['ts'], x))
     #all_ops = sc.textFile("/home/ubuntu/db//x*",False) \
     #         .map(lambda x : (json.loads(x)['ts'], x)) \

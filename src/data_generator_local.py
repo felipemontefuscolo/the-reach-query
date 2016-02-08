@@ -75,14 +75,14 @@ for i in range(0L, n_users):
         f.write(json_str + "\n")
 
 # TWEETS
-with open('dictionary.json') as raw_tt:
-    tt = json.load(raw_tt)
-tt = list( k+": "+v for k,v in tt.items() )
+#with open('dictionary.json') as raw_tt:
+#    tt = json.load(raw_tt)
+#tt = list( k+": "+v for k,v in tt.items() )
 
 for i in range(0L, n_tweets):
     user = numpy.random.randint(0,n_users)
-    msg = (user % n_unique_tweets) % len(tt)
-    msg = tt[msg]
+    msg = user % n_unique_tweets
+    msg = "Engineered data number = " + str(msg)
     json_str = json.dumps({"code":"tweet","id":i,"ts":ts,"msg":msg,"user_id":user})
     f.write(json_str + "\n")
     f_tweet.write(json_str + "\n")
