@@ -31,7 +31,7 @@ if __name__ == "__main__":
                 v.append(viewer[0])
             reach = len(set(v))
             impressions = len(v)
-            print triple[1], "; reach = ", reach, "impressions = ", impressions
+            #print triple[1], "; reach = ", reach, "impressions = ", impressions
 
     def toReach(partition):
         graph = Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
@@ -50,9 +50,8 @@ if __name__ == "__main__":
             result.append( (msg, reach, impressions)  )
         return result
 
-    reach = sc.textFile("/home/ubuntu/db/test02/t*", False) \
+    reach = sc.textFile("/home/ubuntu/db/test01/t*", False) \
               .map( lambda x: json.loads(x) ) \
-              #.filter( lambda x: x['code']=="tweet" ) \
               .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ) \
               .groupByKey() \
               .mapPartitions(toReach)

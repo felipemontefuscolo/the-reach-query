@@ -21,7 +21,7 @@ n_unique_tweets = n_users // 3 + 1
 followers_mean = 500/(1 + exp(-1e-5*(n_users-350000))) # average is limited to 500 followers
 followers_dev = 0.5*abs(n_users/4 - followers_mean)
 
-main_folder = "/home/ubuntu/db/test02"
+main_folder = "/home/ubuntu/db/test01"
 
 #########################################################
 

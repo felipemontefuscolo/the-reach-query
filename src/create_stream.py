@@ -21,7 +21,7 @@ class Producer(object):
 
     def produce_msgs(self, source_symbol):
 
-        data_path = "/home/ubuntu/db/test02"
+        data_path = "/home/ubuntu/db/test01"
 
         for fn in sorted(glob.glob(data_path + '/*.dat')):
             with open(fn, "r") as ff:
