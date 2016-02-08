@@ -50,9 +50,9 @@ if __name__ == "__main__":
             result.append( (msg, reach, impressions)  )
         return result
 
-    reach = sc.textFile("/home/ubuntu/db/simple_test/*", False) \
+    reach = sc.textFile("/home/ubuntu/db/test02/t*", False) \
               .map( lambda x: json.loads(x) ) \
-              .filter( lambda x: x['code']=="tweet" ) \
+              #.filter( lambda x: x['code']=="tweet" ) \
               .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ) \
               .groupByKey() \
               .mapPartitions(toReach)

@@ -34,7 +34,7 @@ if __name__ == "__main__":
     all_ops = KafkaUtils.createStream(ssc, zkQuorum, "Graph1", {topic: 1}) 
     all_ops.pprint()
     all_ops.map(lambda x : (json.loads(x)['ts'], x))
-    #all_ops = sc.textFile("/home/ubuntu/db/test01/x*",False) \
+    #all_ops = sc.textFile("/home/ubuntu/db//x*",False) \
     #         .map(lambda x : (json.loads(x)['ts'], x)) \
     #         .sortByKey()
              

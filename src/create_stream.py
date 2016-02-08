@@ -21,9 +21,9 @@ class Producer(object):
 
     def produce_msgs(self, source_symbol):
 
-        data_path = "/home/ubuntu/db/simple_test"
+        data_path = "/home/ubuntu/db/test02"
 
-        for fn in sorted(glob.glob(data_path + '/x*.dat')):
+        for fn in sorted(glob.glob(data_path + '/*.dat')):
             with open(fn, "r") as ff:
                 for l in ff:
                     self.producer.send_messages('graph1', source_symbol, l)
