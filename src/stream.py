@@ -69,7 +69,7 @@ if __name__ == "__main__":
        return cypher.execute("""MATCH (a:User {id:{AA}})
                                 WITH a
                                 MATCH (b:User {id:{BB}})
-                                CREATE (a)-[r:follows]->(b)
+                                MERGE (a)-[r:follows]->(b)
                                 return r""", { "AA": x['follower_id'], "BB": x['followed_id'] })
 
     def popFollow(x):
