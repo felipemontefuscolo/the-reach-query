@@ -14,12 +14,12 @@ import names
 # You usually want to change one parameter: max_n_chars. All other parameters are deducted from that
 
 max_n_chars = 3 # maximum number of characters in user names. 4 will generator  formula:
-n_users =2* 26L*(1 - 26**max_n_chars)//(1-26)
+n_users = 25000 #2* 26L*(1 - 26**max_n_chars)//(1-26)
 window_size = 10000 # dimensionless time: number of requests. Must be multiple of 5
 n_tweets = 4L*n_users # WARNING: it needs to be multiple of n_users
-n_unique_tweets = n_users // 3 + 1
-followers_mean = 500/(1 + exp(-1e-5*(n_users-350000))) # average is limited to 500 followers
-followers_dev = 0.5*abs(n_users/4 - followers_mean)
+n_unique_tweets = 50 # chance of retweet: 1 - (1.*(n_unique_tweets-1)/n_unique_tweets)**followers_mean
+followers_mean = 40 #500/(1 + exp(-1e-5*(n_users-350000))) # average is limited to 500 followers
+followers_dev = 40 #0.5*abs(n_users/4 - followers_mean)
 
 main_folder = "/home/ubuntu/db/test04"
 
@@ -58,7 +58,7 @@ print ("creating users ...")
 ts = 0L
 # USERS
 for i in range(0L, n_users):
-    json_str = json.dumps({"code":"user", "id":i, "ts":ts, "name":names.get_first_name()})
+    json_str = json.dumps({"code":"user", "id":i, "ts":ts, "name":names.get_first_name()+" "+names.get_last_name()})
     f.write(json_str + "\n")
     ts += 1
 
@@ -68,7 +68,7 @@ f_count = 0
 for i in range(0L, n_users):
     n_followers = min( long(numpy.random.normal(followers_mean, followers_dev)) , n_users)
     for kk in range(0, n_followers):
-        follower = numpy.random.randint(0L,i+1)
+        follower = numpy.random.randint(0L,n_users)
         if follower == i:
             continue
         json_str = json.dumps({"code":"follow","id":f_count,"ts":ts,"follower_id":follower,"followed_id":i})
@@ -102,4 +102,4 @@ os.system("cd " + main_folder + "; split --additional-suffix=.dat -a " + str(l) 
 os.system("cd " + main_folder + "; split --additional-suffix=.dat -a " + str(l) + " -d -l " + str(window_size) + " " + w_path + "/tweets_only.txt t")
 #os.system("rm -f " + w_path + "/tweets_only.txt")
 
-
+print("Number of relationships " + str(f_count))

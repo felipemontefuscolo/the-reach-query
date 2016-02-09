@@ -129,6 +129,6 @@ if __name__ == "__main__":
     #time.sleep(20)
     #ssc.stop(stopSparkContext=True, stopGraceFully=True)
     ssc.awaitTermination()
-    #sc.stop()
+    sc.stop()
 
 
