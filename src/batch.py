@@ -34,18 +34,54 @@ if __name__ == "__main__":
             impressions = len(viewers)
             print my_tuple[0], "; reach = ", reach, " impressions = ", impressions, " viewers = ", viewers
             msg = '"' + my_tuple[0] + '"'
-            result.append( (msg, reach, impressions)  )
+            result.append( (msg,   (reach, impressions)  )  )
         return result
 
     def toCSVLine(data):
+        return ','.join(str(d) for d in data) + ',0'
+    def toCSVLine1(data):
         return ','.join(str(d) for d in data) + ',1'
+    def toCSVLine2(data):
+        return ','.join(str(d) for d in data) + ',2'
 
     reach = sc.textFile("hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000/db/test01/t*") \
               .map( lambda x: json.loads(x) ) \
-              .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ) \
-              .groupByKey() \
-              .mapPartitions(toReach) \
-              .map(toCSVLine)
+              .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ).cache()
+
+    mean = (reach.top(1)[0][1][0] + reach.take(1)[0][1][0]) // 2
+    #print(mean, reach.take(1)[0][1][0])
+
+    reach1 = reach.filter(lambda t: t[1][0] <= mean) 
+    reach2 = reach.filter(lambda t: t[1][0] > mean) 
+
+    reach  =reach.groupByKey() \
+                 .mapPartitions(toReach) \
+                 #.sortByKey() \
+                 #.map(lambda z: (z[0], z[1][0], z[1][1])) \
+                 #.map(toCSVLine)
+
+    reach1  =reach1.groupByKey() \
+                 .mapPartitions(toReach) \
+                 #.map(toCSVLine1)
+
+    reach2  =reach2.groupByKey() \
+                 .mapPartitions(toReach) \
+                 #.map(toCSVLine2)
+
+    reach1 = reach1.union(reach2) \
+                   .reduceByKey(lambda a,b: (a[0]+b[0], a[1]+b[1])) \
+                   #.sortByKey() \
+                   #.map(lambda z: (z[0], z[1][0], z[1][1])) \
+                   #.map(toCSVLine2)
+
+    temp = reach1.union(reach) \
+                 .reduceByKey(lambda a,b: (1.*abs(a[0]-b[0])/(a[0]+b[0]), 1.*abs(a[1]-b[1])/(a[1]+b[1])  )  ) \
+                 .map(lambda z: (z[1][0], z[1][1])) \
+                 .reduce(lambda a,b: (a[0]+b[0], a[1]+b[1]))
+    res = [  1.*temp[0] / reach.count(), 1.*temp[1] / reach.count()]
+
+    print "\n\n ERROR = ", str(res),"\n\n"
+
 
     #n_parts = reach._jrdd.splits().size()
     #reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts) # load balance
@@ -58,10 +94,21 @@ if __name__ == "__main__":
     #lines.coalesce(1, True).saveAsTextFile('file:///home/ubuntu/db/reach.csv')
     print("\n\nPRINTING RESULTS\n\n")
     f = open("/home/ubuntu/db/reach.csv", 'w')
+    reach = reach.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine)
     for q in reach.collect():
         f.write(q+"\n")
     f.close()
 
+    f1 = open("/home/ubuntu/db/reach1.csv", 'w')
+    reach1 = reach1.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine1)
+    for q in reach1.collect():
+        f1.write(q+"\n")
+    f1.close()
+
+    #f2 = open("/home/ubuntu/db/reach2.csv", 'w')
+    #for q in reach2.collect():
+    #    f2.write(q+"\n")
+    #f2.close()
 
     #reach.foreachPartition(getReach) #mapPartitions(fromPartition)
     
