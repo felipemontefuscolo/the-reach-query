@@ -1,20 +1,11 @@
-# the-reach-query
+# Reach and Impressions
 
-type
-
-    sbt package
+The goal of this project is to compute the "Unique Visitors and Visits:x
 
 
 
 
 
-Why Titan and not Neo4j?
-https://groups.google.com/forum/#!msg/aureliusgraphs/vkQkzjN8fo0/9YYgqI4TA0QJ
+slides:
+http://bit.ly/1msUiFQ
 
-Titan interact with Cassandra easily.
-
-
-
-
-useful commands:
-nodetool status
