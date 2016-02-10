@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Fri Feb 05 23:45:00 UTC 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0152-b3d3-1066-00002fd0d4d8 
-on database directory /home/ubuntu/the-reach-query/src/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@3733b1f4 
+Wed Feb 10 00:18:38 UTC 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0152-c88b-4ba1-00002ff8ede0 
+on database directory /home/ubuntu/the-reach-query/src/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@28b16193 
 Loaded from file:/usr/local/spark/lib/spark-assembly-1.5.2-hadoop2.4.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_72-b15

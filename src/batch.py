@@ -20,19 +20,6 @@ if __name__ == "__main__":
     # to the target DB that are bound to the machine where it's created.
     # The solution is create a cypher.graph instance per partition
     # Ref: http://stackoverflow.com/a/28024183/1842038
-    def getReach(partition):
-        graph = Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
-        cypher = graph.cypher    
-        for triple in partition: # triple = (timestamp, message, id)
-            reach = 0
-            v = [] # vector of viewers
-            tweet = triple[2]
-            for viewer in cypher.stream("match (t:Tweet {id:{ID}}) with t match (u)-[r:viewed]->(t) return id(r)", {"ID":tweet}):
-                v.append(viewer[0])
-            reach = len(set(v))
-            impressions = len(v)
-            #print triple[1], "; reach = ", reach, "impressions = ", impressions
-
     def toReach(partition):
         graph = Graph("http://ec2-52-72-28-165.compute-1.amazonaws.com:7474/db/data/")
         cypher = graph.cypher
@@ -46,15 +33,19 @@ if __name__ == "__main__":
             reach = len(set(viewers))
             impressions = len(viewers)
             print my_tuple[0], "; reach = ", reach, " impressions = ", impressions, " viewers = ", viewers
-            msg = my_tuple[0]
+            msg = '"' + my_tuple[0] + '"'
             result.append( (msg, reach, impressions)  )
         return result
 
-    reach = sc.textFile("/home/ubuntu/db/test04/t*", False) \
+    def toCSVLine(data):
+        return ','.join(str(d) for d in data) + ',1'
+
+    reach = sc.textFile("hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000/db/test01/t*") \
               .map( lambda x: json.loads(x) ) \
               .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ) \
               .groupByKey() \
-              .mapPartitions(toReach)
+              .mapPartitions(toReach) \
+              .map(toCSVLine)
 
     #n_parts = reach._jrdd.splits().size()
     #reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts) # load balance
@@ -64,9 +55,13 @@ if __name__ == "__main__":
 
    
     #reach.collect()
+    #lines.coalesce(1, True).saveAsTextFile('file:///home/ubuntu/db/reach.csv')
+    print("\n\nPRINTING RESULTS\n\n")
+    f = open("/home/ubuntu/db/reach.csv", 'w')
     for q in reach.collect():
-     #   pass
-        print q
+        f.write(q+"\n")
+    f.close()
+
 
     #reach.foreachPartition(getReach) #mapPartitions(fromPartition)
     
@@ -80,9 +75,9 @@ if __name__ == "__main__":
     #// * retweet          |   6              id:Long ts:Long msg:string  user_id:Long original_user_id:Long
  
     
-    logger = sc._jvm.org.apache.log4j
-    logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
-    logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
+    #logger = sc._jvm.org.apache.log4j
+    #logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
+    #logger.LogManager.getLogger("akka").setLevel( logger.Level.OFF )
     
     sc.stop()
 
