@@ -44,7 +44,7 @@ if __name__ == "__main__":
     def toCSVLine2(data):
         return ','.join(str(d) for d in data) + ',2'
 
-    reach = sc.textFile("hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000/db/test01/t*") \
+    reach = sc.textFile("hdfs://ec2-52-70-131-91.compute-1.amazonaws.com:9000/db/test04/t*") \
               .map( lambda x: json.loads(x) ) \
               .map( lambda x: (x['msg'],  (x['ts'], x['id'])) ).cache()
 
@@ -75,13 +75,14 @@ if __name__ == "__main__":
                    #.map(toCSVLine2)
 
     temp = reach1.union(reach) \
-                 .reduceByKey(lambda a,b: (1.*abs(a[0]-b[0])/(a[0]+b[0]), 1.*abs(a[1]-b[1])/(a[1]+b[1])  )  ) \
+                 .reduceByKey(lambda a,b: (2.*abs(a[0]-b[0])/(a[0]+b[0]), 2.*abs(a[1]-b[1])/(a[1]+b[1])  )  ) \
                  .map(lambda z: (z[1][0], z[1][1])) \
                  .reduce(lambda a,b: (a[0]+b[0], a[1]+b[1]))
     res = [  1.*temp[0] / reach.count(), 1.*temp[1] / reach.count()]
 
-    print "\n\n ERROR = ", str(res),"\n\n"
-
+    f = open("/home/ubuntu/db/error.txt", 'w')
+    f.write( "\n\n ERROR = " +  str(res) + "\n\n")
+    f.close()
 
     #n_parts = reach._jrdd.splits().size()
     #reach.repartitionAndSortWithinPartitions(n_parts, lambda key: key % n_parts) # load balance
