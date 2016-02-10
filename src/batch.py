@@ -93,18 +93,18 @@ if __name__ == "__main__":
    
     #reach.collect()
     #lines.coalesce(1, True).saveAsTextFile('file:///home/ubuntu/db/reach.csv')
-    print("\n\nPRINTING RESULTS\n\n")
-    f = open("/home/ubuntu/db/reach.csv", 'w')
-    reach = reach.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine)
-    for q in reach.collect():
-        f.write(q+"\n")
-    f.close()
+    #print("\n\nPRINTING RESULTS\n\n")
+    #f = open("/home/ubuntu/db/reach.csv", 'w')
+    #reach = reach.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine)
+    #for q in reach.collect():
+    #    f.write(q+"\n")
+    #f.close()
 
-    f1 = open("/home/ubuntu/db/reach1.csv", 'w')
-    reach1 = reach1.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine1)
-    for q in reach1.collect():
-        f1.write(q+"\n")
-    f1.close()
+    #f1 = open("/home/ubuntu/db/reach1.csv", 'w')
+    #reach1 = reach1.map(lambda z: (z[0], z[1][0], z[1][1])).map(toCSVLine1)
+    #for q in reach1.collect():
+    #    f1.write(q+"\n")
+    #f1.close()
 
     #f2 = open("/home/ubuntu/db/reach2.csv", 'w')
     #for q in reach2.collect():
@@ -112,16 +112,6 @@ if __name__ == "__main__":
     #f2.close()
 
     #reach.foreachPartition(getReach) #mapPartitions(fromPartition)
-    
-    #// my operator are        schema
-    #//                        code id:short            
-    #// * add new user     |   1              id:Long ts:Long name:string
-    #// * delete user      |   2              id:Long ts:Long name:string
-    #// * follow           |   3              id:Long ts:Long follower_id:Long  followed_id:Long
-    #// * unfollow         |   4              id:Long ts:Long follower_id:Long  followed_id:Long
-    #// * new tweet        |   5              id:Long ts:Long msg:string  user_id:Long
-    #// * retweet          |   6              id:Long ts:Long msg:string  user_id:Long original_user_id:Long
- 
     
     #logger = sc._jvm.org.apache.log4j
     #logger.LogManager.getLogger("org").setLevel( logger.Level.OFF )
