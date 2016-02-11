@@ -8,7 +8,7 @@
 The goal of this project is to compute the *Unique Visitors* and *Visits* counterpart in social networks. Those metrics are called, respectively, *Reach* and *Impressions*.
 
 slides:
-http://bit.ly/1msUiFQ
+http://bit.ly/reachquery
 
 According to Twitter [website](http://brnrd.me/reach-audience-and-impressions-on-twitter-and-beyond), their definition are stated as:
 
