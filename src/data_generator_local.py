@@ -13,15 +13,14 @@ import names
 
 # You usually want to change one parameter: max_n_chars. All other parameters are deducted from that
 
-max_n_chars = 3 # maximum number of characters in user names. 4 will generator  formula:
-n_users = 25000 #2* 26L*(1 - 26**max_n_chars)//(1-26)
+n_users = 100000 #2* 26L*(1 - 26**max_n_chars)//(1-26)
 window_size = 10000 # dimensionless time: number of requests. Must be multiple of 5
 n_tweets = 4L*n_users # WARNING: it needs to be multiple of n_users
-n_unique_tweets = 50 # chance of retweet: 1 - (1.*(n_unique_tweets-1)/n_unique_tweets)**followers_mean
+n_unique_tweets = 50 # chance of retweet: 1 - (1.*(n_unique_tweets-1)/n_unique_tweets)**(followers_mean*n_tweets/n_users)
 followers_mean = 40 #500/(1 + exp(-1e-5*(n_users-350000))) # average is limited to 500 followers
 followers_dev = 40 #0.5*abs(n_users/4 - followers_mean)
 
-main_folder = "/home/ubuntu/db/test04"
+main_folder = "/home/ubuntu/db/test02"
 
 #########################################################
 

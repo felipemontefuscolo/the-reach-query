@@ -1,7 +1,8 @@
 *.swp
 *.swo
-src/metastore_db/*
-metastore_db/*
-metastore_db
+src/metastore_db/
+metastore_db/
+**/metastore_db/
+
 
 
