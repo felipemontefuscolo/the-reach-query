@@ -5,7 +5,7 @@
 
 
 
-The goal of this project is to compute the *Unique Visitors* and *Visits* counterpart in social networks. Those metrics are called, respectively, *Reach* and *Impressions*.
+The goal of this project is to compute the webpage counterpart of *Unique Visitors* and *Visits* for social networks. Those metrics are called, respectively, *Reach* and *Impressions*.
 
 slides:
 http://bit.ly/reachquery
